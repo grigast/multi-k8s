@@ -20,6 +20,3 @@ after_success:
   - docker push grigatr/multi-nginx
   - docker push grigatr/multi-server
   - docker push grigatr/multi-worker
-
-
-
