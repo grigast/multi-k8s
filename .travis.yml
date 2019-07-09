@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t grigatr/react-test -f ./client/dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true grigatr/react-test npm test 
+
+after_success:
+  - docker build -t grigatr/multi-client ./client
+  - docker build -t grigatr/multi-nginx ./nginx
+  - docker build -t grigatr/multi-server ./server
+  - docker build -t grigatr/multi-worker ./worker
+  #Log in to the Dcoker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push then to docker hub
+  - docker push grigatr/multi-client
+  - docker push grigatr/multi-nginx
+  - docker push grigatr/multi-server
+  - docker push grigatr/multi-worker
+
+
+
