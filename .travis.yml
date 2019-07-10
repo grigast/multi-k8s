@@ -16,7 +16,7 @@ after_success:
   #Log in to the Dcoker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push then to docker hub
-  - docker push grigatr/multi-client
   - docker push grigatr/multi-nginx
   - docker push grigatr/multi-server
   - docker push grigatr/multi-worker
+  - docker push grigatr/multi-client
