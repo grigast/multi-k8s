@@ -12,5 +12,5 @@ docker push grigatr/multi-worker:$SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=grigatr/multi-server:$SHA
-kubectl set image deploymnets/client-deployment client=grigatr/multi-client:$SHA
+kubectl set image deployments/client-deployment client=grigatr/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=grigatr/multi-worker:$SHA
