@@ -1,6 +1,6 @@
-docker build -t grigatr/multi-client:latest -t grigatr/multi-client:$SHA -f ./client/Dockerfile ./client
-docker build -t grigatr/multi-server:latest -t grigatr/multi-server:$SHA -f ./server/Dockerfile ./server
-docker build -t grigatr/multi-worker:latest -t grigatr/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+docker build -t grigatr/multi-client:latest -t grigatr/multi-client:$SHA -f ./client/dockerfile ./client
+docker build -t grigatr/multi-server:latest -t grigatr/multi-server:$SHA -f ./server/dockerfile ./server
+docker build -t grigatr/multi-worker:latest -t grigatr/multi-worker:$SHA -f ./worker/dockerfile ./worker
 
 docker push grigatr/multi-client:latest
 docker push grigatr/multi-server:latest
